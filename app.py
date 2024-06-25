@@ -152,6 +152,11 @@ app.config['MAIL_PASSWORD'] = 'cjyr hofv smwa ajaz'
 
 mail = Mail(app)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
 # MongoDB connection setup
 mongo_client = MongoClient('mongodb+srv://ilaraecodes:Prayalways1986!@emaillist.tpnge6l.mongodb.net/')
 db = mongo_client['EmailList']
@@ -162,9 +167,6 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static', 'images'),
                                'favicon.ico', mimetype='/static/images/favicon.ico')
 
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 html2 = '''
 <!doctype html>
